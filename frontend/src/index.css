@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d27;
+  --color-border: #2a2d3a;
+  --color-accent: #00d4aa;
+  --color-accent-dim: rgba(0, 212, 170, 0.15);
+  --color-text: #e8eaf0;
+  --color-muted: #6b7280;
+  --color-delayed: #f59e0b;
+  --color-cancelled: #ef4444;
+  --color-ontime: #00d4aa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+}
+
+.leaflet-container {
+  background: var(--color-surface);
+  border-radius: 12px;
+}
+
+.leaflet-tile {
+  filter: brightness(0.85) saturate(0.9);
+}
