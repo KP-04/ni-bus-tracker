@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Stop } from '../services/api';
@@ -46,13 +46,20 @@ export function StopMap({ stops, selectedStop, onSelectStop }: Props) {
     <MapContainer
       center={defaultCenter}
       zoom={12}
-      style={{ height: '400px', width: '100%', borderRadius: '12px' }}
+      zoomAnimation={true}
+      zoomAnimationThreshold={4}
+      wheelPxPerZoomLevel={120}
+      zoomSnap={0.5}
+      zoomDelta={0.5}
+      zoomControl={false}
+      style={{ height: '100vh', width: '100%', borderRadius: '0' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'
         url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       />
 
+      <ZoomControl position="bottomright" />
       <FlyToStop stop={selectedStop} />
 
       {stops.map(stop => (
